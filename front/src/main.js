@@ -6,15 +6,15 @@ import App from "./App.vue";
 import mitt from 'mitt'
 import { createRouter, createWebHistory } from "vue-router/dist/vue-router";
 import User from "./views/User.vue";
-import Test from "./components/partner/Test";
 import Home from "./views/Home";
+import MonthlySaving from "./views/MonthlySaving";
 
 export const emitter = mitt();
 
 const routes = [
   { path: "/", name: "Home", component: Home },
   { path: "/users", name: "User", component: User },
-  { path: "/test", name: "Test", component: Test }
+  { path: "/monthly-saving", name: "MonthlySaving", component: MonthlySaving }
 ];
 
 const router = createRouter({

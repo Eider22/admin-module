@@ -1,6 +1,6 @@
 <template>
   <div class="common-layout">
-    <el-container>
+    <el-container class="el-container">
       <el-aside
         class="aside"
         height="100vh"
@@ -60,7 +60,12 @@ body {
 .container-header-main {
   padding: 1rem;
 }
-/* .root-header {
-  padding: 1rem;
-} */
+
+.el-container {
+  max-height: 100vh;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
 </style>

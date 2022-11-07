@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-table :data="tableData" border style="width: 100%">
+    <el-table :data="tableData" height="500" style="width: 100%">
       <el-table-column prop="name" label="Nombre" width="180" />
       <el-table-column
         prop="identification"
@@ -12,10 +12,12 @@
       <el-table-column label="Acciones">
         <template #default="scope">
           <div>
-            <el-button type="primary"
+            <el-button class="view-button" type="info"
+              ><i class="fa-regular fa-eye"></i></el-button>
+            <el-button class="edit-button" type="primary"
               ><i class="fa-solid fa-pencil"></i
             ></el-button>
-            <el-button type="danger" @click="deleteUser(scope.row.id)">
+            <el-button class="delete-button" type="danger" @click="deleteUser(scope.row.id)">
               <i class="fa-solid fa-trash"></i>
             </el-button>
           </div>
@@ -86,4 +88,10 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+.view-button, .edit-button, .delete-button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+</style>

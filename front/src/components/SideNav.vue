@@ -24,8 +24,8 @@ export default {
         {
           id: 2,
           iconName: "",
-          label: "dos",
-          pathName: "Test",
+          label: "Mi ahorro mensual",
+          pathName: "MonthlySaving",
         },
       ],
     };
@@ -46,7 +46,7 @@ export default {
 }
 .item-name {
   color: #ffff;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-family: inherit;
   width: 100%;
 }
@@ -64,8 +64,5 @@ export default {
   display: inline-block;
   text-decoration: none;
   width: 100%;
-}
-
-.ul {
 }
 </style>

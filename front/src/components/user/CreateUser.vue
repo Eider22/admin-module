@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <el-button type="primary" @click="openModal()"
+      <el-button class="plus-button" type="primary" @click="openModal()"
         ><i class="fa-solid fa-plus"></i
       ></el-button>
     </div>
@@ -219,4 +219,10 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+.plus-button {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+</style>

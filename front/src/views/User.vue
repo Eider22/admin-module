@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header>
+    <el-header class="el-header">
       <h2>Usuarios</h2>
     </el-header>
     <el-main>
@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import CreateUser from "../components/users/CreateUser.vue";
-import UserList from "../components/users/UserList.vue";
+import CreateUser from "../components/user/CreateUser.vue";
+import UserList from "../components/user/UserList.vue";
 
 export default {
   name: "User",
@@ -31,5 +31,9 @@ export default {
 <style scoped>
 .UserList-wraper {
   margin-top: 2rem;
+}
+.el-header  {
+    position: sticky;
+    top: 0;
 }
 </style>
