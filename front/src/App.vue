@@ -6,7 +6,9 @@
         height="100vh"
         width="20%"
         style="overflow: hidden"
-        >Aside</el-aside
+        >
+        <SideNav/>
+        </el-aside
       >
       <el-container class="container-header-main">
         <el-main>
@@ -18,9 +20,13 @@
 </template>
 
 <script>
+import SideNav from "./components/SideNav.vue";
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    SideNav,
+  },
 };
 </script>
 
@@ -28,6 +34,7 @@ export default {
 :root {
   --blue: #083249;
   --el-header-height: 30px;
+  --color-gray-transparent: #afb1b3;
   font-size: 16px;
 }
 
@@ -46,6 +53,7 @@ body {
 .aside {
   background-color: var(--blue);
   height: 100vh;
+  min-width: 15rem;
   padding: 0.5rem;
   color: #eeee;
 }

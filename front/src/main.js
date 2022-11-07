@@ -3,10 +3,19 @@ import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 import App from "./App.vue";
-import Advisor from "./views/Advisor.vue";
+import mitt from 'mitt'
 import { createRouter, createWebHistory } from "vue-router/dist/vue-router";
+import User from "./views/User.vue";
+import Test from "./components/partner/Test";
+import Home from "./views/Home";
 
-const routes = [{ path: "/", component: Advisor }];
+export const emitter = mitt();
+
+const routes = [
+  { path: "/", name: "Home", component: Home },
+  { path: "/users", name: "User", component: User },
+  { path: "/test", name: "Test", component: Test }
+];
 
 const router = createRouter({
   history: createWebHistory(),
