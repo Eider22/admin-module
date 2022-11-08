@@ -218,7 +218,6 @@ export default {
       try {
         const res = await postData("users", this.form, true);
         emitter.emit("onUpdateData");
-        console.log(res);
         this.dialogVisible = false;
       } catch (err) {
         console.log(err);
