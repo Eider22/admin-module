@@ -46,6 +46,7 @@
             class="m-2"
             placeholder="Selecccione el rol"
             size="large"
+            @change="changeMonthlyPayment"
           >
             <el-option
               v-for="role in roles"
@@ -55,6 +56,11 @@
             />
           </el-select>
         </el-form-item>
+        <div v-if="form.role === '2' ? true : false">
+          <el-form-item label="Cuota mensual" prop="monthlyPayment">
+            <el-input v-model="form.monthlyPayment" />
+          </el-form-item>
+        </div>
 
         <el-form-item>
           <el-button type="primary" @click="saveUser('registerForm')"
@@ -88,6 +94,7 @@ export default {
         dateOfBirth: "",
         email: "",
         identification: "",
+        monthlyPayment: "",
       },
       rules: {
         firstName: [
@@ -122,7 +129,13 @@ export default {
         identification: [
           {
             type: "number",
-            asyncValidator: this.checkidentIfication,
+            asyncValidator: this.checkIdentfication,
+          },
+        ],
+        monthlyPayment: [
+          {
+            type: "number",
+            asyncValidator: this.checkMonthlyPayment,
           },
         ],
         email: [
@@ -134,7 +147,7 @@ export default {
         ],
         role: [
           {
-            required: true,
+            asyncValidator: this.checkRole,
             message: "Por favor seleccione el role",
           },
         ],
@@ -150,7 +163,7 @@ export default {
       return res;
     },
 
-    checkidentIfication(rule, value) {
+    checkIdentfication(rule, value) {
       const regex = new RegExp("^[0-9]+$");
       return new Promise((resolve, reject) => {
         if (!value) {
@@ -166,6 +179,37 @@ export default {
       });
     },
 
+    checkRole(rule, value) {
+      const regex = new RegExp("^[0-9]+$");
+      return new Promise((resolve, reject) => {
+        if (!value) {
+          reject("Por favor selecciona un rol");
+          return;
+        }
+        resolve(true);
+        return;
+      });
+    },
+
+    checkMonthlyPayment(rule, value) {
+      const regex = new RegExp("^[0-9]+$");
+      return new Promise((resolve, reject) => {
+        if (!value) {
+          reject("Por favor ingresa la cuota");
+          return;
+        }
+        if (!regex.test(value)) {
+          reject("Solo se admiten números");
+          return;
+        }
+        resolve(true);
+        return;
+      });
+    },
+
+    changeMonthlyPayment(){
+      if(this.form.role === '1') this.form.monthlyPayment = "";
+    },
     async saveUser(formName) {
       if (!this.$refs[formName]) return;
       const formIsValid = await this.validateForm(formName);
@@ -211,6 +255,7 @@ export default {
       this.form.email = "";
       this.form.identification = "";
       this.form.role = "";
+      this.form.monthlyPayment = "";
       return;
     },
   },

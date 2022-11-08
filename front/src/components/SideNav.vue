@@ -39,6 +39,12 @@ export default {
           label: "Mis créditos",
           pathName: "Credit",
         },
+        {
+          id: 5,
+          iconName: "",
+          label: "Solicitudes de crédito",
+          pathName: "CreditRequest",
+        },
       ],
     };
   },

@@ -57,7 +57,7 @@ userRouter.get("/roles", (req, res, next) => {
 userRouter.post("/", (req, res, next) => {
   //hacer las validaciones pertinentes
   //validar el rol y de acuerdo al rol crear un asesor o un socio en las respectivas entidades
-  // console.log(req.body);
+  console.log(req.body);
   return res.send({
     test: "test",
   });
