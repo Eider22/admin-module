@@ -27,6 +27,12 @@ export default {
           label: "Mi ahorro mensual",
           pathName: "MonthlySaving",
         },
+        {
+          id: 2,
+          iconName: "",
+          label: "Crowd funding",
+          pathName: "CrowdFunding",
+        },
       ],
     };
   },

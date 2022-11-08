@@ -12,14 +12,46 @@
       <el-table-column label="Acciones">
         <template #default="scope">
           <div>
-            <el-button class="view-button" type="info"
-              ><i class="fa-regular fa-eye"></i></el-button>
-            <el-button class="edit-button" type="primary"
-              ><i class="fa-solid fa-pencil"></i
-            ></el-button>
-            <el-button class="delete-button" type="danger" @click="deleteUser(scope.row.id)">
-              <i class="fa-solid fa-trash"></i>
-            </el-button>
+            <el-popover
+              placement="top-start"
+              :width="100"
+              trigger="hover"
+              content="Ver detalles"
+            >
+              <template #reference>
+                <el-button class="view-button" type="info"
+                  ><i class="fa-regular fa-eye"></i
+                ></el-button>
+              </template>
+            </el-popover>
+            <el-popover
+              placement="top-start"
+              :width="100"
+              trigger="hover"
+              content="Editar"
+            >
+              <template #reference>
+                <el-button class="edit-button" type="primary"
+                  ><i class="fa-solid fa-pencil"></i
+                ></el-button>
+              </template>
+            </el-popover>
+            <el-popover
+              placement="top-start"
+              :width="100"
+              trigger="hover"
+              content="Eliminar"
+            >
+              <template #reference>
+                <el-button
+                  class="delete-button"
+                  type="danger"
+                  @click="deleteUser(scope.row.id)"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </el-button>
+              </template>
+            </el-popover>
           </div>
         </template>
       </el-table-column>
@@ -89,7 +121,9 @@ export default {
 };
 </script>
 <style scoped>
-.view-button, .edit-button, .delete-button {
+.view-button,
+.edit-button,
+.delete-button {
   width: 30px;
   height: 30px;
   border-radius: 50%;

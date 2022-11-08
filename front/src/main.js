@@ -8,13 +8,15 @@ import { createRouter, createWebHistory } from "vue-router/dist/vue-router";
 import User from "./views/User.vue";
 import Home from "./views/Home";
 import MonthlySaving from "./views/MonthlySaving";
+import CrowdFunding from "./views/CrowdFunding";
 
 export const emitter = mitt();
 
 const routes = [
   { path: "/", name: "Home", component: Home },
   { path: "/users", name: "User", component: User },
-  { path: "/monthly-saving", name: "MonthlySaving", component: MonthlySaving }
+  { path: "/monthly-saving", name: "MonthlySaving", component: MonthlySaving },
+  { path: "/crowd-funding", name: "CrowdFunding", component: CrowdFunding },
 ];
 
 const router = createRouter({
