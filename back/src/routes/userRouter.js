@@ -40,7 +40,7 @@ userRouter.get("/", (req, res, next) => {
 
 userRouter.post("/", (req, res, next) => {
   //hacer las validaciones pertinentes
-  //validar el rol y de acuerdo al rol crear el usuario y un asesor o un socio según corresponda
+  //validar el rol, y de acuerdo al rol crear el usuario y un asesor o un socio según corresponda
   console.log(req.body);
   const {
     firstName,
