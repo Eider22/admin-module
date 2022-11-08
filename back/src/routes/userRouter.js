@@ -3,40 +3,41 @@ const { Router } = require("express");
 const userRouter = Router();
 
 userRouter.post("/login", (req, res) => {
-  return res.send("test");
+  return res.send({ test: "test" });
 });
 
 userRouter.get("/", (req, res, next) => {
-  return res.send({
-    data: [
-      {
-        id: "456",
-        firstName: "John",
-        secondName: "Eider",
-        lastName: "Cardona",
-        secondLastName: "Castrillon",
-        email: "eidercardona22@gmail.com",
-        identification: "1002732542",
-        role: {
-          id: "1",
-          name: "Asesor",
+  try {
+    return res.send({
+      data: [
+        {
+          id: "456",
+          firstName: "John",
+          secondName: "Eider",
+          lastName: "Cardona",
+          secondLastName: "Castrillon",
+          identification: "1002732542",
+          email: "eidercardona22@gmail.com",
+          role: {
+            id: "1",
+            name: "Asesor",
+          },
         },
-      },
-      {
-        id: "564",
-        firstName: "Juan",
-        // secondName: "Pedro",
-        lastName: "Cardoso",
-        secondLastName: "Lopez",
-        email: "pedro22@gmail.com",
-        identification: "11111111",
-        role: {
-          id: "1",
-          name: "Socio",
+        {
+          id: "564",
+          firstName: "Juan",
+          lastName: "Cardoso",
+          secondLastName: "Lopez",
+          email: "pedro22@gmail.com",
+          identification: "11111111",
+          role: {
+            id: "1",
+            name: "Socio",
+          },
         },
-      },
-    ],
-  });
+      ],
+    });
+  } catch (error) {}
 });
 
 userRouter.get("/roles", (req, res, next) => {
@@ -56,37 +57,33 @@ userRouter.get("/roles", (req, res, next) => {
 
 userRouter.post("/", (req, res, next) => {
   //hacer las validaciones pertinentes
-  //validar el rol y de acuerdo al rol crear un asesor o un socio en las respectivas entidades
+  //validar el rol y de acuerdo al rol crear el usuario y un asesor o un socio según corresponda
   console.log(req.body);
-  return res.send({
-    test: "test",
-  });
   const {
     firstName,
-    firstLastName,
-    identificationNumber,
-    age,
-    phone,
-    address,
+    secondtName,
+    lastName,
+    identification,
+    secondLastName,
+    dateOfBirth,
     email,
-    idRole,
+    monthlyPayment,
+    role,
   } = req.body;
 
   if (
     !firstName ||
-    !firstLastName ||
-    !identificationNumber ||
-    !age ||
-    !phone ||
-    !address ||
+    !lastName ||
+    !identification ||
+    !dateOfBirth ||
     !email ||
-    !idRole
+    !role
   )
     return res.sendStatus(400);
 
   try {
     //code
-    return res.send("test");
+    return res.send({ test: "test" });
   } catch (error) {
     //code
   }

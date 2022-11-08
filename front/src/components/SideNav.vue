@@ -46,7 +46,7 @@ export default {
         },
         {
           id: 4,
-          iconName: "fapplya-solid fa-hand-holding-dollar",
+          iconName: "fa-solid fa-money-check-dollar",
           label: "Mis créditos",
           pathName: "Credit",
           path: "/partner/credits",

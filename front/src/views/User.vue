@@ -1,9 +1,6 @@
 <template>
   <div class="container-wrap">
     <el-container>
-      <el-header class="el-header">
-        <h2>Usuarios</h2>
-      </el-header>
       <el-main>
         <div>
           <div>
@@ -33,10 +30,6 @@ export default {
 <style scoped>
 .UserList-wraper {
   margin-top: 2rem;
-}
-.el-header {
-  position: sticky;
-  top: 0;
 }
 .container-wrap {
   position: sticky;
