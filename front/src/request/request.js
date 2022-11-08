@@ -46,3 +46,26 @@ export const getData = async function (url = "") {
     throw error;
   }
 };
+
+
+export const deleteRequest = async function (url = "", needToken) {
+  url = APP_HOST + url;
+  let aHeaders = new Headers();
+  aHeaders.append("Content-Type", "application/json");
+  // if (needToken) {
+  //   let token = localStorage.getItem("token");
+  //   if (token != null) {
+  //     aHeaders.append("Authorization", `${"Bearer " + token}`);
+  //   } else {
+  //     throw "No se pudo obtener el token";
+  //   }
+  // }
+  const response = await fetch(url, {
+    method: "DELETE",
+    mode: "cors",
+    credentials: "same-origin",
+    headers: aHeaders,
+  });
+  return response.json();
+};
+

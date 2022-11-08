@@ -2,10 +2,6 @@ const { Router } = require("express");
 
 const userRouter = Router();
 
-userRouter.post("/login", (req, res) => {
-  return res.send({ test: "test" });
-});
-
 userRouter.get("/", (req, res, next) => {
   try {
     return res.send({
@@ -40,20 +36,7 @@ userRouter.get("/", (req, res, next) => {
   } catch (error) {}
 });
 
-userRouter.get("/roles", (req, res, next) => {
-  return res.send({
-    data: [
-      {
-        id: "1",
-        name: "Asesor",
-      },
-      {
-        id: "2",
-        name: "Socio",
-      },
-    ],
-  });
-});
+
 
 userRouter.post("/", (req, res, next) => {
   //hacer las validaciones pertinentes
@@ -81,6 +64,7 @@ userRouter.post("/", (req, res, next) => {
   )
     return res.sendStatus(400);
 
+  
   try {
     //code
     return res.send({ test: "test" });
@@ -89,12 +73,33 @@ userRouter.post("/", (req, res, next) => {
   }
 });
 
-userRouter.patch("/", (req, res, next) => {
+userRouter.patch("/:id", (req, res, next) => {
   res.send({ test: "test" });
 });
 
-userRouter.delete("/", (req, res, next) => {
-  res.send({ test: "test" });
+userRouter.delete("/:id", (req, res, next) => {
+  const { id } = req.params;
+  console.log(id)
+  res.send({ test: "test", id});
+});
+
+userRouter.post("/login", (req, res) => {
+  return res.send({ test: "test" });
+});
+
+userRouter.get("/roles", (req, res, next) => {
+  return res.send({
+    data: [
+      {
+        id: "1",
+        name: "Asesor",
+      },
+      {
+        id: "2",
+        name: "Socio",
+      },
+    ],
+  });
 });
 
 module.exports = { userRouter };

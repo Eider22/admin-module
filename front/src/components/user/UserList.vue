@@ -1,6 +1,7 @@
 <template>
   <div>
     <el-table :data="tableData" height="500" style="width: 100%">
+      <el-table-column prop="id" label="Id" width="180" />
       <el-table-column prop="name" label="Nombre" width="180" />
       <el-table-column
         prop="identification"
@@ -59,7 +60,7 @@
   </div>
 </template>
 <script>
-import { getData } from "../../request/request";
+import { deleteRequest, getData } from "../../request/request";
 import { emitter } from "../../main";
 
 export default {
@@ -70,24 +71,13 @@ export default {
     };
   },
   methods: {
-    async loadData() {
+    async deleteUser(id) {
       try {
-        const response = await getData("users");
-        let tempData = [
-          {
-            name: response.data[0].firstName,
-            identification: response.data[0].identification,
-            email: response.data[0].email,
-          },
-        ];
-        this.tableData = tempData;
+        const response = await deleteRequest(`users/${id}`);
+        console.log(response);
       } catch (error) {
-        console.log(error);
+        console.log(error)
       }
-    },
-    deleteUser(id) {
-      // hacer la request para eliminar usuario
-      console.log(id);
     },
     async loadData() {
       try {
@@ -95,6 +85,7 @@ export default {
         let tempData = [];
         response.data.forEach((user) => {
           tempData.push({
+            id: user.id,
             name: `${user.firstName}  ${
               user.secondName ? user.secondName : ""
             }  ${user.lastName}  ${
