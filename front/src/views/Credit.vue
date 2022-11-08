@@ -1,12 +1,17 @@
 <template>
   <div class="container-wrap">
+  <el-header class="header-wrap">
+     <SimpleCard :title="'Total créditos pedidos'" :description="'$3500.000'" />
+     <SimpleCard :title="'Fondos de crédito disponibles'" :description="'$500.000'"/>
+    </el-header>
     <el-container>
       <el-main>
         <div>
           <div>
             <CreateCredit />
           </div>
-          <div class="UserList-wraper">
+          <div class="credit-list-wraper">
+            <CreditList/>
           </div>
         </div>
       </el-main>
@@ -16,25 +21,31 @@
 
 <script>
 import CreateCredit from "../components/credit/CreateCredit.vue";
+import CreditList from "../components/credit/CreditList.vue";
+import SimpleCard from "../components/SimpleCard.vue";
 
 export default {
-  name: "User",
+  name: "Credit",
   components: {
     CreateCredit,
+    CreditList,
+    SimpleCard
   },
 };
 </script>
 <style scoped>
-.UserList-wraper {
+.credit-list-wraper {
   margin-top: 2rem;
 }
-.el-header {
-  position: sticky;
-  top: 0;
-}
+
 .container-wrap {
   position: sticky;
   top: 0;
   max-height: 80vh;
+}
+.header-wrap  {
+    position: sticky;
+    top: 0;
+    display: flex;
 }
 </style>

@@ -1,10 +1,17 @@
 <template>
-  <div>
-    <div>
-      <el-button class="plus-button" type="primary" @click="openModal()"
-        ><i class="fa-solid fa-plus"></i
-      ></el-button>
-    </div>
+  <div class="test">
+    <el-popover
+      placement="top-start"
+      :width="100"
+      trigger="hover"
+      content="Crear nueva solicitud"
+    >
+      <template #reference>
+          <el-button class="plus-button" type="primary" @click="openModal()"
+            ><i class="fa-solid fa-plus"></i
+          ></el-button>
+      </template>
+    </el-popover>
     <el-dialog v-model="dialogVisible" width="55%" title="Solicitud crédito">
       <el-form
         ref="registerCreditForm"
@@ -73,7 +80,7 @@ export default {
         amount: [
           {
             type: "number",
-            asyncValidator: this.checkamount,
+            asyncValidator: this.checkAmount,
           },
         ],
       },
@@ -88,7 +95,7 @@ export default {
       return res;
     },
 
-    checkamount(rule, value) {
+    checkAmount(rule, value) {
       const regex = new RegExp("^[0-9]+$");
       return new Promise((resolve, reject) => {
         if (!value) {
@@ -142,5 +149,9 @@ export default {
   width: 45px;
   height: 45px;
   border-radius: 50%;
+}
+
+.test {
+  margin-top: 60px;
 }
 </style>
