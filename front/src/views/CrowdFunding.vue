@@ -6,10 +6,10 @@
     <el-main class="main-wraper">
       <el-tabs type="border-card">
           <el-tab-pane label="Mis inversiones"
-            ><ListCrowdFunding
+            ><CrowdFundingList
           /></el-tab-pane>
           <el-tab-pane label="Proyectos diponibles para tí">
-            <ListAvailableCrowdFunding />
+            <AvailableCrowdFundingList />
           </el-tab-pane>
       </el-tabs>
     </el-main>
@@ -17,14 +17,14 @@
 </template>
 <script>
 import SimpleCard from "../components/SimpleCard.vue";
-import ListCrowdFunding from "../components/crowd-funding/ListCrowdFunding.vue";
-import ListAvailableCrowdFunding from "../components/crowd-funding/ListAvailableCrowdFunding.vue";
+import CrowdFundingList from "../components/crowd-funding/CrowdFundingList.vue";
+import AvailableCrowdFundingList from "../components/crowd-funding/AvailableCrowdFundingList.vue";
 export default {
   name: "CrowdFunding",
   components: {
     SimpleCard,
-    ListCrowdFunding,
-    ListAvailableCrowdFunding,
+    CrowdFundingList,
+    AvailableCrowdFundingList,
   },
 };
 </script>

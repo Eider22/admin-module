@@ -27,7 +27,7 @@
 </template>
 <script>
 export default {
-  name: "ListCrowdFunding",
+  name: "CrowdFundingList",
   data() {
     return {
       tableData: [
@@ -53,7 +53,7 @@ export default {
           estimatedReturn: "10%",
           myInvestment: "6.000.000",
           return: "$600.000",
-          status: "En ejecución",
+          status: "Finalizado",
         },
        {
           code: "0004",

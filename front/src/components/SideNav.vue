@@ -28,10 +28,16 @@ export default {
           pathName: "MonthlySaving",
         },
         {
-          id: 2,
+          id: 3,
           iconName: "",
           label: "Crowd funding",
           pathName: "CrowdFunding",
+        },
+        {
+          id: 4,
+          iconName: "",
+          label: "Mis créditos",
+          pathName: "Credit",
         },
       ],
     };

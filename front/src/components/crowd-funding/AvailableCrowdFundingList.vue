@@ -27,9 +27,12 @@
                 </div>
                 <div>test</div>
               </div>
-              <div>
+              <div class="wrap-buttons">
                 <el-button text class="button" type="primary"
                   >Ir al sitio</el-button
+                >
+                <el-button type="primary"
+                  >Aplicar</el-button
                 >
               </div>
             </div>
@@ -41,7 +44,7 @@
 </template>
 <script>
 export default {
-  name: "ListAvailableCrowdFunding",
+  name: "AvailableCrowdFundingList",
   data() {
     return {
       cardData: [
@@ -147,4 +150,10 @@ export default {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
+
+.wrap-buttons{
+  display: flex;
+  justify-content: space-between;
+}
+
 </style>

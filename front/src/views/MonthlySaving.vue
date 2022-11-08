@@ -1,21 +1,21 @@
 <template>
-  <div>
+  <div class="container-wrap">
     <el-header class="header-wrap">
      <SimpleCard :title="'Ahorro acumulado'" :description="'$900.000'" />
      <SimpleCard :title="'Interés acumulado'" :description="'$90.000'"/>
     </el-header>
     <el-main class="main-wraper">
-     <CreateMonthlySaving/>
+     <MonthlySavingList/>
     </el-main>
   </div>
 </template>
 <script>
-import CreateMonthlySaving from "../components/monthly-saving/ListMonthlySaving.vue";
+import MonthlySavingList from "../components/monthly-saving/MonthlySavingList.vue";
 import SimpleCard from "../components/SimpleCard.vue";
 export default {
   name: "MonthlySaving",  
   components:{
-    CreateMonthlySaving,
+    MonthlySavingList,
     SimpleCard
   }
 };
@@ -28,5 +28,10 @@ export default {
     position: sticky;
     top: 0;
     display: flex;
+}
+.container-wrap {
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
 }
 </style>

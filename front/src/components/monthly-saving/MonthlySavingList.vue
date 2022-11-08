@@ -6,6 +6,7 @@
       <el-table-column prop="status" label="Estado" />
       <el-table-column prop="maxPaymentDate" label="Fecha máxima de pago" />
       <el-table-column label="Acciones">
+                <template #default="scope">
         <div>
           <el-popover
             placement="top-start"
@@ -14,7 +15,7 @@
             content="Pagar ahora mismo"
           >
             <template #reference>
-              <el-button class="pay-button" type="primary"
+              <el-button v-if="scope.row.status !== 'Pago'? true: false" class="pay-button" type="primary"
                 ><i class="fa-solid fa-dollar-sign"></i
               ></el-button>
             </template>
@@ -26,19 +27,20 @@
             content="Descargar comprobante pago"
           >
             <template #reference>
-              <el-button class="download-button" type="success">
+              <el-button v-if="scope.row.status === 'Pago'? true: false" class="download-button" type="success">
                 <i class="fa-solid fa-file-arrow-down"></i>
               </el-button>
             </template>
           </el-popover>
         </div>
+        </template>
       </el-table-column>
     </el-table>
   </div>
 </template>
 <script>
 export default {
-  name: "ListMonthlySaving",
+  name: "MonthlySavingList",
   data() {
     return {
       tableData: [

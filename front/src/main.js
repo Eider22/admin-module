@@ -9,6 +9,7 @@ import User from "./views/User.vue";
 import Home from "./views/Home";
 import MonthlySaving from "./views/MonthlySaving";
 import CrowdFunding from "./views/CrowdFunding";
+import Credit from "./views/Credit";
 
 export const emitter = mitt();
 
@@ -17,6 +18,7 @@ const routes = [
   { path: "/users", name: "User", component: User },
   { path: "/monthly-saving", name: "MonthlySaving", component: MonthlySaving },
   { path: "/crowd-funding", name: "CrowdFunding", component: CrowdFunding },
+  { path: "/credits", name: "Credit", component: Credit },
 ];
 
 const router = createRouter({
