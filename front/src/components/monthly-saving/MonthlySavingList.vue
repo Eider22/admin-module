@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <el-table :data="tableData" height="500" style="width: 100%">
+  <div class="container">
+    <el-table :data="tableData" height="500" style="width: 100%" class="el-table">
       <el-table-column prop="code" label="Código" width="180" />
       <el-table-column prop="amount" label="Monto" width="180" />
       <el-table-column prop="status" label="Estado" />
@@ -128,5 +128,8 @@ export default {
   width: 30px;
   height: 30px;
   border-radius: 50%;
+}
+.el-table {
+  height:50vh;
 }
 </style>

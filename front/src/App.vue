@@ -10,8 +10,8 @@
         <SideNav/>
         </el-aside
       >
-      <el-container class="container-header-main">
-        <el-main>
+      <el-container class="container-main">
+        <el-main class="el-main">
           <router-view />
         </el-main>
       </el-container>
@@ -57,7 +57,7 @@ body {
   padding: 0.5rem;
   color: #eeee;
 }
-.container-header-main {
+.container-main {
   padding: 1rem;
 }
 
@@ -65,6 +65,11 @@ body {
   max-height: 100vh;
 }
 
+.el-main {
+  padding: 10px;
+  overflow-y: hidden;
+  
+}
 ::-webkit-scrollbar {
     display: none;
 }
